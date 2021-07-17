@@ -1,0 +1,114 @@
+<div class="wrapper">
+    <header>
+        <!-- <Navbar menuSlice={menuSlice} /> -->
+        <app-navbar></app-navbar>
+        <!-- <div>jsdhgfjhdsgfjhdg</div> -->
+    </header>
+    <main>
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <!-- <img src={logo} /> -->
+            </div>
+            <ul class="list-unstyled components">
+                <!-- <p>MODULOS</p> -->
+                <li class="nav-item">
+                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['pacientes']">
+                        Inicio
+                    </a>
+                </li>
+                <!-- <li>
+            <a style="font-size: 14px;" href="#homeSubmenu" class="dropdown-[routerLink]ggle" data-bs-[routerLink]ggle="collapse" aria-expanded="false" aria-controls="homeSubmenu" data-bs-target="#homeSubmenu">
+              Home
+            </a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+              <li class="nav-item">
+                <nav style="font-size: 14px;" class="nav-link active" [routerLink]="/inicio">
+                  Inicio
+                </nav>
+              </li>
+              <li class="nav-item">
+                <nav style="font-size: 14px;" class="nav-link active" [routerLink]="/perfil">
+                  perfil
+                </nav>
+              </li>
+            </ul>
+          </li>  -->
+                <li class="nav-item">
+                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['pacientes']">
+                        Pacientes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['doctores']">
+                        Doctores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['pacientes']">
+                        Hospitales
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['pacientes']">
+                        Registro Administrador
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/usuarioAdministrador">
+                        Usuarios Administrador
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/registroAdministradorParqueo">
+                        Registro Administrador Parqueo
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/usuarioAdministradorParqueo">
+                        Usuarios Administrador Parqueo
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/publicidadParqueo">
+                        Publicidad
+                    </nav>
+                </li>
+
+                <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/reportes">
+                        Reportes
+                    </nav>
+                </li> -->
+                <!-- <li class="nav-item">
+            <nav class="nav-link active" [routerLink]="/perfilUsuario">
+              Perfil Usuario
+            </nav></li> -->
+                <!-- <hr />
+                <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/listaSugerencias">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">
+                            <i class="fas fa-envelope-open"></i>
+                        </span> Buzón sugerencias
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/listaProblemas">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i
+                                class="fas fa-exclamation-circle"></i></span> Reporte de problemas
+                    </nav>
+                </li>
+                <li class="nav-item">
+                    <nav style="font-size: 14px;" class="nav-link " [routerLink]="/listaContactate">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i
+                                class="fas fa-exclamation-circle"></i></span> Reporte de contactate
+                    </nav>
+                </li> -->
+            </ul>
+        </nav>
+        <div id="content" class="">
+            <!-- <h1>aqui va el childrend</h1>  -->
+            <!-- {props.childrenHijo} -->
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>
