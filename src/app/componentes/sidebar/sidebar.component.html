@@ -1,13 +1,14 @@
 <div class="wrapper">
     <header>
         <!-- <Navbar menuSlice={menuSlice} /> -->
-        <app-navbar></app-navbar>
+        <app-navbar (cambioValor)="menuSlice()"></app-navbar>
         <!-- <div>jsdhgfjhdsgfjhdg</div> -->
     </header>
     <main>
-        <nav id="sidebar" class="">
-            <div class="sidebar-header">
-                <!-- <img src={logo} /> -->
+        <nav id="sidebar" #asSidebar class="">
+            <div class="sidebar-header" style="
+            text-align: center;">
+                <img style="width: 90px; height:90px;" src="assets/img/logo.png">
             </div>
             <ul class="list-unstyled components">
                 <!-- <p>MODULOS</p> -->
@@ -34,18 +35,18 @@
             </ul>
           </li>  -->
                 <li class="nav-item">
-                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['pacientes']">
+                    <a style="font-size: 14px;" class="nav-link" [routerLink]="['pacientes']">
                         Pacientes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['doctores']">
+                    <a style="font-size: 14px;" class="nav-link" [routerLink]="['doctores']">
                         Doctores
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['pacientes']">
-                        Hospitales
+                    <a style="font-size: 14px;" class="nav-link " [routerLink]="['especialidades']">
+                        Especialidades
                     </a>
                 </li>
                 <li class="nav-item">
@@ -105,7 +106,7 @@
                 </li> -->
             </ul>
         </nav>
-        <div id="content" class="">
+        <div id="content" #asContent class="">
             <!-- <h1>aqui va el childrend</h1>  -->
             <!-- {props.childrenHijo} -->
             <router-outlet></router-outlet>

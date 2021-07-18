@@ -56,7 +56,7 @@ main{
 }
 
 #sidebar {
-    width: 250px;
+    width: 200px;
     position: fixed;
     /* top: 0; */
     left: 0;
@@ -68,11 +68,11 @@ main{
     height: 100%;
     position: relative;
     overflow: auto;
-    border-right: #050230 3px solid;
+    border-right: #1F93C9 3px solid;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -200px;
 }
 
 #sidebar .sidebar-header {
@@ -94,24 +94,26 @@ main{
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color:#1E668A
 }
 
+
 #sidebar ul li a:hover {
-    color: #ccc;
-    background: #050230;
+    color: #1E668A;
+    background: #8ACBF4;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #050230;
+    color: #1E668A;
+    background: #8ACBF4;
 }
 
 /*aumenté*/
 #sidebar ul li a.active
 {
     color: #fff;
-    background: #050230 !important;
+    background: #8ACBF4 !important;
 }
 
 a[data-toggle="collapse"] {
@@ -170,7 +172,7 @@ a.article:hover {
 ----------------------------------------------------- */
 
 #content {
-    width: calc(100% - 250px);
+    width: calc(100% - 200px);
     padding: 20px;
     height: 100%;
     transition: all 0.3s;
@@ -191,7 +193,7 @@ a.article:hover {
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -200px;
     }
     #sidebar.active {
         margin-left: 0;
@@ -200,7 +202,7 @@ a.article:hover {
         width: 100%;
     }
     #content.active {
-        width: calc(100% - 250px);
+        width: calc(100% - 200px);
     }
     #sidebarCollapse span {
         display: none;
