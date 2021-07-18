@@ -10,6 +10,10 @@ import { PacientesComponent } from './componentes/pacientes/pacientes.component'
 import { DoctoresComponent } from './componentes/doctores/doctores.component';
 import { EspecialidadesComponent } from './componentes/especialidades/especialidades.component';
 import { HospitalesComponent } from './componentes/hospitales/hospitales.component';
+import { AgregarHospitalesComponent } from './componentes/agregar-hospitales/agregar-hospitales.component';
+import { AgregarPacientesComponent } from './componentes/agregar-pacientes/agregar-pacientes.component';
+import { AgregarDoctoresComponent } from './componentes/agregar-doctores/agregar-doctores.component';
+import { HistorialNotasComponent } from './componentes/historial-notas/historial-notas.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { HospitalesComponent } from './componentes/hospitales/hospitales.compone
     PacientesComponent,
     DoctoresComponent,
     EspecialidadesComponent,
-    HospitalesComponent
+    HospitalesComponent,
+    AgregarHospitalesComponent,
+    AgregarPacientesComponent,
+    AgregarDoctoresComponent,
+    HistorialNotasComponent
   ],
   imports: [
     BrowserModule,

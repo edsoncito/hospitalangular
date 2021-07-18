@@ -12,10 +12,11 @@ export class SidebarComponent implements OnInit {
 
   valor: boolean = false
 
-  constructor() { }
+  constructor() {
+    this.menuSlice()
+  }
 
   ngOnInit(): void {
-    this.menuSlice()
   }
 
   menuSlice() {

@@ -112,13 +112,14 @@ a[aria-expanded="true"] {
 /*aumenté*/
 #sidebar ul li a.active
 {
-    color: #fff;
+    color: #000;
     background: #8ACBF4 !important;
 }
 
 a[data-toggle="collapse"] {
     position: relative;
 }
+
 
 /* .dropdown-toggle::after {
     display: block;

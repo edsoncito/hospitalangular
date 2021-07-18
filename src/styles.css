@@ -38,6 +38,18 @@ h3 {
   color: #535353;
 }
 
+.card{
+    border-top: 3px solid #8ACBF4
+}
+
+th {
+    font-size: .75rem ;
+  }
+  
+  td{
+    font-size: .75rem ; 
+  }
+
 .scrollable-menu {
   height: auto;
   max-height: 200px;

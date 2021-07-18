@@ -1,1 +1,40 @@
-<p>hospitales works!</p>
+<h3 class="text-center">Lista de hospitales</h3>
+<div class="d-flex justify-content-between">
+    <a class="btn btn-primary mb-3" (click)="agregarHospitales()">
+        Agregar
+    </a>
+</div>
+<div class="mb-3">
+    <input autoComplete="off" type="text" class="form-control" id="inputContraseña" placeholder="Buscar" />
+</div>
+<div class="card mb-3 table-responsive">
+    <table class="table mb-0 table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Fecha_on</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr key="{key}">
+                <td style="max-width: 80px">
+                    dsd
+                </td>
+                <td>dsds</td>
+                <td> sd</td>
+                <td> sd</td>
+                <td> sd</td>
+                <!-- <td> {obj.correo}</td>
+                <td> {obj.telefono}</td>
+                <td> {obj.direccion}</td>
+                <td> {obj.capacidad}</td>
+                <td> {obj.departamento}</td>
+                <td> {obj.horario_atencion}</td> -->
+                <!-- <td> {new Intl.DateTimeFormat("es", options).format(date)}</td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
