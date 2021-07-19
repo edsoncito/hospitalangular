@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { AgregarHospitalesComponent } from './componentes/agregar-hospitales/agr
 import { AgregarPacientesComponent } from './componentes/agregar-pacientes/agregar-pacientes.component';
 import { AgregarDoctoresComponent } from './componentes/agregar-doctores/agregar-doctores.component';
 import { HistorialNotasComponent } from './componentes/historial-notas/historial-notas.component';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { HistorialNotasComponent } from './componentes/historial-notas/historial
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

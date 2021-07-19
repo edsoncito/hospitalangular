@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-doctores',
@@ -8,14 +9,29 @@ import { Router } from '@angular/router';
 })
 export class DoctoresComponent implements OnInit {
 
-  constructor(private router: Router) {
+  public listaDoctores:any=[]
+
+  constructor(
+    private router: Router,
+    private RestService: RestService
+  ) {
+
   }
 
   ngOnInit(): void {
+    this.obtenerDoctores();
   }
 
-  agregarPacientes() {
+  navigateCreate() {
     this.router.navigate(["/doctores/agregar-doctores"])
+  }
+
+  public obtenerDoctores() {
+    this.RestService.getAllDoctor(`http://localhost:8080/api/doctores`)
+      .subscribe(respuesta => {
+        this.listaDoctores = respuesta
+        // console.log(respuesta)
+      })
   }
 
 }

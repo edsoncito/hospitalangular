@@ -1,32 +1,32 @@
 <h3 class="text-center">Agregar paciente</h3>
-<form>
+
+<button type="button" class="btn btn-secondary mb-2" (click)="goBack()">regresar</button>
+
+<form [formGroup]="form" (ngSubmit)="save($event)">
     <div class="card mb-3">
         <div class="card-body">
             <div class="mb-3">
-                <label class="form-label">Nombres</label>
-                <input type="text" class="form-control" id="inputNombres" placeholder="Nombres" required />
+                <label class="form-label">Nombres *</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombres" />
             </div>
             <div class="mb-3">
-                <label class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="inputApellidos" placeholder="Apellidos" />
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
+                <label class="form-label">Apellidos *</label>
+                <input type="text" class="form-control" formControlName="apellido" placeholder="Apellidos" />
+            </div>
+            <div class="mb-3 col-3">
+                <label class="form-label">Fecha de Nacimiento *</label>
+                <input type="date" class="form-control" formControlName="fecha_nac" placeholder="Fecha de Nacimiento" />
             </div>
             <div class="mb-3">
-                <label class="form-label">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="inputDireccion" placeholder="Fecha de Nacimiento" />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" />
+                <label class="form-label">Dirección *</label>
+                <input type="text" class="form-control" formControlName="direccion" placeholder="Dirección" />
             </div>
         </div>
         <div class="card-footer">
-            <button type="button" class="btn btn-warning">
+            <button *ngIf="IdPaciente" type="button" (click)="actualizarPaciente()" class="btn btn-warning">
                 Editar
             </button>
-            <button type="button" class="btn btn-primary">
+            <button *ngIf="!IdPaciente" type="submit" class="btn btn-primary">
                 Registrar
             </button>
         </div>

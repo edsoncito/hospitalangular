@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: "hospitales", component: HospitalesComponent },
   { path: "hospitales/agregar-hospitales", component: AgregarHospitalesComponent },
   { path: "pacientes/agregar-pacientes", component: AgregarPacientesComponent },
+  { path: "pacientes/editar-pacientes/:key", component: AgregarPacientesComponent },
   { path: "doctores/agregar-doctores", component: AgregarDoctoresComponent },
   { path: "historial-notas", component: HistorialNotasComponent },
 ];
