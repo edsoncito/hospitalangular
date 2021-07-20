@@ -25,7 +25,7 @@
 
         <tbody>
             <tr key="hh" *ngFor="let obj of listaDoctores">
-                <td>{{obj.idPaciente}}</td>
+                <td>{{obj.idDoctor}}</td>
                 <td>{{obj.nombre}}</td>
                 <td>{{obj.apellido}}</td>
                 <td>{{obj.fecha_nac}}</td>
@@ -34,7 +34,7 @@
                 <td>{{obj.update_on}}</td>
                 <td>
                     <a class="btn btn-warning btn-sm mx-2"
-                        [routerLink]="['/pacientes/editar-pacientes',obj.idPaciente]">
+                        [routerLink]="['/doctores/editar-doctores',obj.idDoctor]">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
                                 class="fas fa-edit"></i></span>
                     </a>

@@ -105,7 +105,7 @@ export class AgregarDoctoresComponent implements OnInit {
   }
 
   public actualizarDoctor() {
-    this.RestService.updateDoctor(`http://localhost:8080/api/pacientes/` + this.IdDoctor,
+    this.RestService.updateDoctor(`http://localhost:8080/api/doctores/` + this.IdDoctor,
       this.form.value
     )
       .subscribe(respuesta => {
