@@ -18,7 +18,7 @@
                 <th scope="col">Direccion</th>
                 <th scope="col">Fecha_on</th>
                 <th scope="col">Update_on</th>
-                <th scope="col">editar</th>
+                <th scope="col">Accion</th>
                 <th scope="col">Agregar Nota</th>
             </tr>
         </thead>
@@ -38,14 +38,18 @@
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
                                 class="fas fa-edit"></i></span>
                     </a>
-                </td>
-                <td>
                     <button title="delate" class="btn btn-danger btn-sm">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i
                                 class="fas fa-trash-alt"></i></span>
                     </button>
                 </td>
 
+                <td class="text-center">
+                    <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/pacientes/nota',obj.idPaciente]">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
+                                class=" fas fa-address-card"></i></span>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>

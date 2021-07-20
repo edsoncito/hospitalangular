@@ -45,4 +45,60 @@ export class RestService {
     return this.http.put(url, body)
   }
 
+
+  // ------- Servicios restApi Hospitales -----  //
+
+  public getAllHospital(url: string) {
+    return this.http.get(url)
+  }
+
+  public insertarHospital(url: string, body: any) {
+    return this.http.post(url, body)
+  }
+
+  public getByIdHospital(url: string) {
+    return this.http.get(url)
+  }
+
+  public updateHospital(url: string, body: any) {
+    return this.http.put(url, body)
+  }
+
+
+  // ------- Servicios restApi Especialidades -----  //
+
+  public getAllEspecialidades(url: string) {
+    return this.http.get(url)
+  }
+
+  public insertarEspecialidades(url: string, body: any) {
+    return this.http.post(url, body)
+  }
+
+  public getByIdEspecialidades(url: string) {
+    return this.http.get(url)
+  }
+
+  public updateEspecialidades(url: string, body: any) {
+    return this.http.put(url, body)
+  }
+
+  // ------- Servicios restApi Notas -----  //
+
+  public getAllNotas(url: string) {
+    return this.http.get(url)
+  }
+
+  public insertarNotas(url: string, body: any) {
+    return this.http.post(url, body)
+  }
+
+  public getByIdNotas(url: string) {
+    return this.http.get(url)
+  }
+
+  public updateNotas(url: string, body: any) {
+    return this.http.put(url, body)
+  }
+
 }

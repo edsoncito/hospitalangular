@@ -33,19 +33,21 @@
                 <td>{{obj.create_on}}</td>
                 <td>{{obj.update_on}}</td>
                 <td>
-                    <a class="btn btn-warning btn-sm mx-2"
-                        [routerLink]="['/doctores/editar-doctores',obj.idDoctor]">
+                    <a class="btn btn-warning btn-sm mx-2" [routerLink]="['/doctores/editar-doctores',obj.idDoctor]">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
                                 class="fas fa-edit"></i></span>
                     </a>
-                </td>
-                <td>
                     <button title="delate" class="btn btn-danger btn-sm">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i
                                 class="fas fa-trash-alt"></i></span>
                     </button>
                 </td>
-
+                <td class="text-center">
+                    <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/pacientes/nota',obj.idPaciente]">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
+                                class=" fas fa-address-card"></i></span>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>

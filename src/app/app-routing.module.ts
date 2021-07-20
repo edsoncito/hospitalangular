@@ -8,6 +8,7 @@ import { AgregarHospitalesComponent } from './componentes/agregar-hospitales/agr
 import { AgregarPacientesComponent } from './componentes/agregar-pacientes/agregar-pacientes.component';
 import { AgregarDoctoresComponent } from './componentes/agregar-doctores/agregar-doctores.component';
 import { HistorialNotasComponent } from './componentes/historial-notas/historial-notas.component';
+import { NotasComponent } from './componentes/notas/notas.component';
 
 const routes: Routes = [
   { path: "pacientes", component: PacientesComponent },
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: "pacientes/editar-pacientes/:key", component: AgregarPacientesComponent },
   { path: "doctores/agregar-doctores", component: AgregarDoctoresComponent },
   { path: "doctores/editar-doctores/:key", component: AgregarDoctoresComponent },
+  { path: "hospitales/editar-hospitales/:key", component: AgregarHospitalesComponent },
   { path: "historial-notas", component: HistorialNotasComponent },
+  { path: "pacientes/nota/:key", component: NotasComponent },
 ];
 
 @NgModule({

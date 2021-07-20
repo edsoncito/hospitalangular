@@ -1,15 +1,12 @@
 <h3 class="text-center">Agregar de especialidades</h3>
-<form>
+<form [formGroup]="form" (ngSubmit)="save($event)">
     <div class="mb-3">
-        <input type="text" class="form-control" id="inputNombres" placeholder="Nombres" required />
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombres" />
     </div>
     <div class="mb-3">
-        <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripción" />
-        <div class="invalid-feedback">
-            Please provide a valid city.
-        </div>
+        <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripcion" />
     </div>
-    <button type="button" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary">
         Registrar
     </button>
 </form>
@@ -24,27 +21,30 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Direccion</th>
+                <th scope="col">Descripción</th>
                 <th scope="col">Fecha_on</th>
+                <th scope="col">Update_on</th>
+                <!-- <th scope="col">Acciones</th> -->
             </tr>
         </thead>
         <tbody>
-            <tr key="{key}">
-                <td style="max-width: 80px">
-                    dsd
-                </td>
-                <td>dsds</td>
-                <td> sd</td>
-                <td> sd</td>
-                <td> sd</td>
-                <!-- <td> {obj.correo}</td>
-                <td> {obj.telefono}</td>
-                <td> {obj.direccion}</td>
-                <td> {obj.capacidad}</td>
-                <td> {obj.departamento}</td>
-                <td> {obj.horario_atencion}</td> -->
-                <!-- <td> {new Intl.DateTimeFormat("es", options).format(date)}</td> -->
+            <tr key="hh" *ngFor="let obj of listaEspecialidades">
+                <td>{{obj.idEspecialidad}}</td>
+                <td>{{obj.nombre}}</td>
+                <td>{{obj.descripcion}}</td>
+                <td>{{obj.create_on}}</td>
+                <td>{{obj.update_on}}</td>
+                <!-- <td>
+                    <a class="btn btn-warning btn-sm mx-2"
+                        [routerLink]="['/hospitales/editar-hospitales',obj.idHospital]">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
+                                class="fas fa-edit"></i></span>
+                    </a>
+                    <button title="delate" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i
+                                class="fas fa-trash-alt"></i></span>
+                    </button>
+                </td> -->
             </tr>
         </tbody>
     </table>

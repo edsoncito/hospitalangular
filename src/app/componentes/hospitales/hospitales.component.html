@@ -13,27 +13,34 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Telefono</th>
+                <th scope="col">Teléfono</th>
                 <th scope="col">Direccion</th>
                 <th scope="col">Fecha_on</th>
+                <th scope="col">Update_on</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
+
         <tbody>
-            <tr key="{key}">
-                <td style="max-width: 80px">
-                    dsd
+            <tr key="hh" *ngFor="let obj of listaHospitales">
+                <td>{{obj.idHospital}}</td>
+                <td>{{obj.nombre}}</td>
+                <td>{{obj.telefono}}</td>
+                <td>{{obj.direccion}}</td>
+                <td>{{obj.create_on}}</td>
+                <td>{{obj.update_on}}</td>
+                <td>
+                    <a class="btn btn-warning btn-sm mx-2"
+                        [routerLink]="['/hospitales/editar-hospitales',obj.idHospital]">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
+                                class="fas fa-edit"></i></span>
+                    </a>
+                    <button title="delate" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"><i
+                                class="fas fa-trash-alt"></i></span>
+                    </button>
                 </td>
-                <td>dsds</td>
-                <td> sd</td>
-                <td> sd</td>
-                <td> sd</td>
-                <!-- <td> {obj.correo}</td>
-                <td> {obj.telefono}</td>
-                <td> {obj.direccion}</td>
-                <td> {obj.capacidad}</td>
-                <td> {obj.departamento}</td>
-                <td> {obj.horario_atencion}</td> -->
-                <!-- <td> {new Intl.DateTimeFormat("es", options).format(date)}</td> -->
+
             </tr>
         </tbody>
     </table>

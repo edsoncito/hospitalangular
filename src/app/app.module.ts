@@ -16,6 +16,7 @@ import { AgregarHospitalesComponent } from './componentes/agregar-hospitales/agr
 import { AgregarPacientesComponent } from './componentes/agregar-pacientes/agregar-pacientes.component';
 import { AgregarDoctoresComponent } from './componentes/agregar-doctores/agregar-doctores.component';
 import { HistorialNotasComponent } from './componentes/historial-notas/historial-notas.component';
+import { NotasComponent } from './componentes/notas/notas.component';
 
 
 
@@ -32,7 +33,8 @@ import { HistorialNotasComponent } from './componentes/historial-notas/historial
     AgregarHospitalesComponent,
     AgregarPacientesComponent,
     AgregarDoctoresComponent,
-    HistorialNotasComponent
+    HistorialNotasComponent,
+    NotasComponent
   ],
   imports: [
     BrowserModule,

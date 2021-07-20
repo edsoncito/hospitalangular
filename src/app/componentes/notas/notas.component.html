@@ -1,0 +1,41 @@
+<h3 class="text-center">Agregar Notas</h3>
+
+<button type="button" class="btn btn-secondary mb-2" (click)="goBack()">regresar</button>
+
+<form [formGroup]="form" (ngSubmit)="save($event)">
+    <!-- <form > -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">Descripcion *</label>
+                <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripcion" />
+            </div>
+
+            <div class="row">
+
+                <div class="col-6">
+                    <label class="form-label">Hospital *</label>
+                    <select class="form-select" formControlName="hospital_id" size="4"
+                        aria-label="size 4 select example">
+                        <option *ngFor="let obj of listaHospital" selected={{obj.idHospital}} value={{obj.idHospital}}>
+                            {{obj.nombre}}</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label class="form-label">Especialidad *</label>
+                    <select class="form-select" formControlName="especialidad_id" size="4"
+                        aria-label="size 4  select example">
+                        <option *ngFor="let obj of listaEspecialidad" value={{obj.idEspecialidad}}>{{obj.nombre}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">
+                Registrar
+            </button>
+        </div>
+    </div>
+
+</form>
