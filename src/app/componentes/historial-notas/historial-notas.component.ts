@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-historial-notas',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialNotasComponent implements OnInit {
 
-  constructor() { }
+  public listaNotas: any = []
 
-  ngOnInit(): void {
+  constructor(
+    private RestService: RestService
+  ) {
+
   }
 
+  ngOnInit(): void {
+    this.obtenerNotas();
+  }
+
+  public obtenerNotas() {
+    this.RestService.getAllNotas(`http://localhost:8080/api/notas`)
+      .subscribe(respuesta => {
+        this.listaNotas = respuesta
+        console.log(respuesta)
+      })
+  }
 }

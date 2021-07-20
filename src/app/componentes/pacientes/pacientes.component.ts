@@ -11,7 +11,7 @@ import { RestService } from 'src/app/rest.service';
 export class PacientesComponent implements OnInit {
 
 
-  public listaPaciente:any=[]
+  public listaPaciente: any = []
 
   constructor(
     private router: Router,
@@ -37,5 +37,19 @@ export class PacientesComponent implements OnInit {
       })
   }
 
+  eliminarDato(id: number) {
+    var txt;
+    var r = confirm("Seguro que desea eliminar?");
+    if (r == true) {
+      this.RestService.deletePaciente(`http://localhost:8080/api/pacientes/` + id,
+      )
+        .subscribe(respuesta => {
+          console.log(respuesta)
+          this.obtenerPaciente()
+        })
+    } else {
+      txt = "You pressed Cancel!";
+    }
+  }
 }
 

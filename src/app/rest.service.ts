@@ -26,6 +26,10 @@ export class RestService {
     return this.http.put(url, body)
   }
 
+  public deletePaciente(url: string) {
+    return this.http.delete(url)
+  }
+
 
   // ------- Servicios restApi Doctores -----  //
 
@@ -44,7 +48,9 @@ export class RestService {
   public updateDoctor(url: string, body: any) {
     return this.http.put(url, body)
   }
-
+  public deleteDoctor(url: string) {
+    return this.http.delete(url)
+  }
 
   // ------- Servicios restApi Hospitales -----  //
 

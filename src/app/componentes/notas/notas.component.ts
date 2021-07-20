@@ -16,7 +16,7 @@ export class NotasComponent implements OnInit {
 
   myDate: any = new Date();
   form!: FormGroup;
-  public IdPaciente: any 
+  public IdPaciente: any
   public listaHospital: any = []
   public listaEspecialidad: any = []
 
@@ -29,12 +29,12 @@ export class NotasComponent implements OnInit {
   ) {
 
     this.IdPaciente = this.route.snapshot.paramMap.get("key");
-    
+
     this.buildForm();
   }
 
   ngOnInit(): void {
-    
+
     this.obtenerHospitales();
     this.obtenerEspecialidades();
   }
@@ -50,6 +50,7 @@ export class NotasComponent implements OnInit {
       paciente_id: [this.IdPaciente, [Validators.required]],
       hospital_id: ['', [Validators.required]],
       especialidad_id: ['', [Validators.required]],
+      doctor_id: [''],
       create_on: [this.datePipe.transform(this.myDate, 'MM-dd-yyyy')],
       update_on: [''],
     })
@@ -71,7 +72,6 @@ export class NotasComponent implements OnInit {
   save(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
-      console.log("dfd")
       this.insertarNota();
     } else {
       alert("Los campo con (*) son obligatorios")
@@ -80,7 +80,7 @@ export class NotasComponent implements OnInit {
 
 
   public insertarNota() {
-    this.RestService.insertarHospital(`http://localhost:8080/api/notas`,
+    this.RestService.insertarNotas(`http://localhost:8080/api/notas`,
       this.form.value
     )
       .subscribe(respuesta => {

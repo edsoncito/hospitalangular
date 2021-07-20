@@ -34,4 +34,20 @@ export class DoctoresComponent implements OnInit {
       })
   }
 
+
+  eliminarDato(id: number) {
+    var txt;
+    var r = confirm("Seguro que desea eliminar?");
+    if (r == true) {
+      this.RestService.deleteDoctor(`http://localhost:8080/api/doctores/` + id,
+      )
+        .subscribe(respuesta => {
+          console.log(respuesta)
+          this.obtenerDoctores()
+        })
+    } else {
+      txt = "You pressed Cancel!";
+    }
+  }
+
 }

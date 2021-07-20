@@ -25,6 +25,7 @@ export class AgregarHospitalesComponent implements OnInit {
     private datePipe: DatePipe,
     private route: ActivatedRoute
   ) {
+    
     this.buildForm();
 
     this.IdHospital = this.route.snapshot.paramMap.get("key");
@@ -32,6 +33,8 @@ export class AgregarHospitalesComponent implements OnInit {
       // console.log("edson")
       this.getById(this.IdHospital)
     }
+
+   
   }
 
   ngOnInit(): void {
@@ -89,13 +92,13 @@ export class AgregarHospitalesComponent implements OnInit {
       .subscribe(respuesta => {
         var valor = Object.values(respuesta);
 
-        console.log(valor)
+        console.log(valor[4])
         // console.log(this.datePipe.transform(JSON.stringify(valor[4]), 'yyyy-MM-dd'))
 
         this.form.controls['nombre'].setValue(valor[1]);
         this.form.controls['telefono'].setValue(valor[3]);
         this.form.controls['direccion'].setValue(valor[2]);
-        this.form.controls['create_on'].setValue(valor[5]);
+        this.form.controls['create_on'].setValue(valor[4]);
       });
   }
 
