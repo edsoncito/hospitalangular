@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { RestService } from 'src/app/rest.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -8,39 +7,37 @@ import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-especialidades',
-  templateUrl: './especialidades.component.html',
-  styleUrls: ['./especialidades.component.css'],
+  selector: 'app-agregar-especialidades',
+  templateUrl: './agregar-especialidades.component.html',
+  styleUrls: ['./agregar-especialidades.component.css'],
   providers: [DatePipe]
 })
+export class AgregarEspecialidadesComponent implements OnInit {
 
-export class EspecialidadesComponent implements OnInit {
-
-  public listaEspecialidades: any = []
   myDate: any = new Date();
   form!: FormGroup;
   public IdEspecialidad: any
 
   constructor(
     private formBuilder: FormBuilder,
-    private RestService: RestService,
-    private router: Router,
+    private _location: Location,
+    private RestService: RestService,  
     private datePipe: DatePipe,
+    private route: ActivatedRoute
   ) {
     this.buildForm();
-    this.IdEspecialidad = false;
-    // if (this.IdEspecialidad) {
-    // console.log("edson")
-    // this.getById(this.IdEspecialidad)
-    // }
+    this.IdEspecialidad = this.route.snapshot.paramMap.get("key");
+    if (this.IdEspecialidad) {
+      // console.log("edson")
+      // this.getById(this.IdEspecialidad)
+    }
   }
 
   ngOnInit(): void {
-    this.obtenerEspecialidades();
   }
 
-  navigateCreate() {
-    this.router.navigate(["/especialidad/agregar-especialidad"])
+  goBack() {
+    this._location.back();
   }
 
   private buildForm() {
@@ -83,11 +80,20 @@ export class EspecialidadesComponent implements OnInit {
       })
   }
 
-  public obtenerEspecialidades() {
-    this.RestService.getAllEspecialidades(`http://localhost:8080/api/especialidades`)
-      .subscribe(respuesta => {
-        this.listaEspecialidades = respuesta
-        // console.log(respuesta)
-      })
-  }
+
+  // public getById(id: number) {
+  //   this.RestService.getByIdDoctor(`http://localhost:8080/api/doctores/` + id,
+  //   )
+  //     .subscribe(respuesta => {
+  //       var valor = Object.values(respuesta);
+
+  //       console.log(valor[6])
+  //       // console.log(this.datePipe.transform(JSON.stringify(valor[4]), 'yyyy-MM-dd'))
+  //       this.form.controls['nombre'].setValue(valor[1]);
+  //       this.form.controls['descripcion'].setValue(valor[2]);
+  //       this.form.controls['create_on'].setValue(valor[3]);
+  //     });
+  // }
+  
+
 }

@@ -1,17 +1,9 @@
-<h3 class="text-center">Agregar de especialidades</h3>
-<form [formGroup]="form" (ngSubmit)="save($event)">
-    <div class="mb-3">
-        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombres" />
-    </div>
-    <div class="mb-3">
-        <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripcion" />
-    </div>
-    <button type="submit" class="btn btn-primary">
-        Registrar
-    </button>
-</form>
-
 <h3 class="text-center">Lista de especialidades</h3>
+<div class="d-flex justify-content-between">
+    <a class="btn btn-primary mb-3" (click)="navigateCreate()">
+        Agregar
+    </a>
+</div>
 <div class="mb-3">
     <input autoComplete="off" type="text" class="form-control" id="inputContraseña" placeholder="Buscar" />
 </div>
@@ -24,7 +16,7 @@
                 <th scope="col">Descripción</th>
                 <th scope="col">Fecha_on</th>
                 <th scope="col">Update_on</th>
-                <!-- <th scope="col">Acciones</th> -->
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -34,9 +26,9 @@
                 <td>{{obj.descripcion}}</td>
                 <td>{{obj.create_on}}</td>
                 <td>{{obj.update_on}}</td>
-                <!-- <td>
+                <td>
                     <a class="btn btn-warning btn-sm mx-2"
-                        [routerLink]="['/hospitales/editar-hospitales',obj.idHospital]">
+                        [routerLink]="['/especialidad/editar-especialidad',obj.idEspecialidad]">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
                                 class="fas fa-edit"></i></span>
                     </a>
@@ -44,7 +36,7 @@
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i
                                 class="fas fa-trash-alt"></i></span>
                     </button>
-                </td> -->
+                </td>
             </tr>
         </tbody>
     </table>

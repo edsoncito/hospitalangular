@@ -9,20 +9,28 @@ import { AgregarPacientesComponent } from './componentes/agregar-pacientes/agreg
 import { AgregarDoctoresComponent } from './componentes/agregar-doctores/agregar-doctores.component';
 import { HistorialNotasComponent } from './componentes/historial-notas/historial-notas.component';
 import { NotasComponent } from './componentes/notas/notas.component';
+import { AgregarEspecialidadesComponent } from './componentes/agregar-especialidades/agregar-especialidades.component';
 
 const routes: Routes = [
   { path: "pacientes", component: PacientesComponent },
-  { path: "doctores", component: DoctoresComponent },
-  { path: "especialidades", component: EspecialidadesComponent },
-  { path: "hospitales", component: HospitalesComponent },
-  { path: "hospitales/agregar-hospitales", component: AgregarHospitalesComponent },
   { path: "pacientes/agregar-pacientes", component: AgregarPacientesComponent },
   { path: "pacientes/editar-pacientes/:key", component: AgregarPacientesComponent },
+
+  { path: "doctores", component: DoctoresComponent },
   { path: "doctores/agregar-doctores", component: AgregarDoctoresComponent },
   { path: "doctores/editar-doctores/:key", component: AgregarDoctoresComponent },
+
+  { path: "especialidades", component: EspecialidadesComponent },
+  { path: "especialidad/agregar-especialidad", component: AgregarEspecialidadesComponent },
+  { path: "especialidad/editar-especialidad/:key", component: AgregarEspecialidadesComponent },
+
+  { path: "hospitales", component: HospitalesComponent },
+  { path: "hospitales/agregar-hospitales", component: AgregarHospitalesComponent },
   { path: "hospitales/editar-hospitales/:key", component: AgregarHospitalesComponent },
+  
   { path: "historial-notas", component: HistorialNotasComponent },
   { path: "pacientes/nota/:key", component: NotasComponent },
+  
 ];
 
 @NgModule({
