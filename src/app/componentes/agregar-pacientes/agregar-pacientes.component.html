@@ -1,17 +1,19 @@
 <h3 class="text-center">Agregar paciente</h3>
 
-<button type="button" class="btn btn-secondary mb-2" (click)="goBack()">regresar</button>
+<button type="button" class="btn btn-sm btn-secondary mb-2" (click)="goBack()">regresar</button>
 
 <form [formGroup]="form" (ngSubmit)="save($event)">
     <div class="card mb-3">
         <div class="card-body">
             <div class="mb-3">
                 <label class="form-label">Nombres *</label>
-                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombres" />
+                <input type="text" class="form-control" formControlName="nombre" maxlength="50" size="50"
+                    placeholder="Nombres" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellidos *</label>
-                <input type="text" class="form-control" formControlName="apellido" placeholder="Apellidos" />
+                <input type="text" class="form-control" formControlName="apellido" maxlength="50" size="50"
+                    placeholder="Apellidos" />
             </div>
             <div class="mb-3 col-3">
                 <label class="form-label">Fecha de Nacimiento *</label>
@@ -19,14 +21,20 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Dirección *</label>
-                <input type="text" class="form-control" formControlName="direccion" placeholder="Dirección" />
+                <input type="text" class="form-control" formControlName="direccion" maxlength="50" size="50"
+                    placeholder="Dirección" />
             </div>
         </div>
         <div class="card-footer">
-            <button *ngIf="IdPaciente" type="button" (click)="actualizarPaciente()" class="btn btn-warning">
-                Editar
+            <button type="button" (click)="goBack()" class="btn btn-sm btn-danger me-2"
+                style="color: #fff;">
+                Cancelar
             </button>
-            <button *ngIf="!IdPaciente" type="submit" class="btn btn-primary">
+            <button *ngIf="IdPaciente" type="button" (click)="actualizarPaciente()" class="btn btn-sm btn-warning"
+                style="color: #fff;">
+                Guardar Cambios
+            </button>
+            <button *ngIf="!IdPaciente" type="submit" class="btn btn-sm btn-primary">
                 Registrar
             </button>
         </div>

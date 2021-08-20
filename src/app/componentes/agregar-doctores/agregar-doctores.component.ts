@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { RestService } from 'src/app/rest.service';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-doctores',
@@ -14,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AgregarDoctoresComponent implements OnInit {
 
-  
+
   myDate: any = new Date();
   form!: FormGroup;
   public IdDoctor: any
@@ -24,17 +25,16 @@ export class AgregarDoctoresComponent implements OnInit {
     private _location: Location,
     private RestService: RestService,
     private datePipe: DatePipe,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
 
   ) {
     this.buildForm();
 
     this.IdDoctor = this.route.snapshot.paramMap.get("key");
     if (this.IdDoctor) {
-      // console.log("edson")
       this.getById(this.IdDoctor)
     }
-
   }
 
   ngOnInit(): void {
@@ -42,7 +42,8 @@ export class AgregarDoctoresComponent implements OnInit {
   }
 
   goBack() {
-    this._location.back();
+    //this._location.back();
+    this.router.navigate(['/doctores']);
   }
 
   private buildForm() {
@@ -50,9 +51,9 @@ export class AgregarDoctoresComponent implements OnInit {
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
-      fecha_nac: [''],      
-      create_on: [''],      
-      update_on: [''],
+      fecha_nac: [''],
+      // create_on: [''],
+      // update_on: [''],
     })
     this.form.valueChanges
       .pipe(
@@ -60,12 +61,12 @@ export class AgregarDoctoresComponent implements OnInit {
       )
       .subscribe(value => {
         value.fecha_nac = this.datePipe.transform(value.fecha_nac, 'MM-dd-yyyy')
-        if (this.IdDoctor) {
-          value.update_on = this.datePipe.transform(this.myDate, 'MM-dd-yyyy')
-        } else {
-          // this.form.addControl('create_on', this.formBuilder.control(this.datePipe.transform(this.myDate, 'MM-dd-yyyy'), Validators.required));
-          value.create_on = this.datePipe.transform(this.myDate, 'MM-dd-yyyy')
-        }
+        // if (this.IdDoctor) {
+        //   value.update_on = this.datePipe.transform(this.myDate, 'MM-dd-yyyy')
+        // } else {
+        //   // this.form.addControl('create_on', this.formBuilder.control(this.datePipe.transform(this.myDate, 'MM-dd-yyyy'), Validators.required));
+        //   value.create_on = this.datePipe.transform(this.myDate, 'MM-dd-yyyy')
+        // }
       });
   }
 
@@ -83,8 +84,10 @@ export class AgregarDoctoresComponent implements OnInit {
       this.form.value
     )
       .subscribe(respuesta => {
-        console.log(respuesta)
-        alert("Datos guardados Correctamente")
+        //this._location.back();
+        const navigationExtras: NavigationExtras = { state: { example: true } };
+        this.router.navigate(['/doctores'], navigationExtras);
+        // alert("Datos guardados Correctamente")
       })
   }
 
@@ -93,14 +96,12 @@ export class AgregarDoctoresComponent implements OnInit {
     )
       .subscribe(respuesta => {
         var valor = Object.values(respuesta);
-
-        console.log(valor[6])
         // console.log(this.datePipe.transform(JSON.stringify(valor[4]), 'yyyy-MM-dd'))
         this.form.controls['nombre'].setValue(valor[1]);
         this.form.controls['apellido'].setValue(valor[2]);
         this.form.controls['fecha_nac'].setValue(this.datePipe.transform(JSON.stringify(valor[4]), 'yyyy-MM-dd'));
         this.form.controls['direccion'].setValue(valor[3]);
-        this.form.controls['create_on'].setValue(valor[6]);
+        // this.form.controls['create_on'].setValue(valor[6]);
       });
   }
 
@@ -113,5 +114,4 @@ export class AgregarDoctoresComponent implements OnInit {
         alert("Datos editados Correctamente")
       })
   }
-
 }

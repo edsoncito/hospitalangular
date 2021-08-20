@@ -29,7 +29,7 @@ export class AgregarEspecialidadesComponent implements OnInit {
     this.IdEspecialidad = this.route.snapshot.paramMap.get("key");
     if (this.IdEspecialidad) {
       // console.log("edson")
-      // this.getById(this.IdEspecialidad)
+      this.getById(this.IdEspecialidad)
     }
   }
 
@@ -81,19 +81,27 @@ export class AgregarEspecialidadesComponent implements OnInit {
   }
 
 
-  // public getById(id: number) {
-  //   this.RestService.getByIdDoctor(`http://localhost:8080/api/doctores/` + id,
-  //   )
-  //     .subscribe(respuesta => {
-  //       var valor = Object.values(respuesta);
-
-  //       console.log(valor[6])
-  //       // console.log(this.datePipe.transform(JSON.stringify(valor[4]), 'yyyy-MM-dd'))
-  //       this.form.controls['nombre'].setValue(valor[1]);
-  //       this.form.controls['descripcion'].setValue(valor[2]);
-  //       this.form.controls['create_on'].setValue(valor[3]);
-  //     });
-  // }
+  public getById(id: number) {
+    this.RestService.getByIdEspecialidades(`http://localhost:8080/api/especialidades/` + id,
+    )
+      .subscribe(respuesta => {
+        var valor = Object.values(respuesta);
+        // console.log(valor[6])
+        this.form.controls['nombre'].setValue(valor[1]);
+        this.form.controls['descripcion'].setValue(valor[2]);
+        this.form.controls['create_on'].setValue(valor[3]);
+      });
+  }
   
+
+  public actualizarEspecialidad() {
+    this.RestService.updateEspecialidades(`http://localhost:8080/api/especialidades/` + this.IdEspecialidad,
+      this.form.value
+    )
+      .subscribe(respuesta => {
+        console.log(respuesta)
+        alert("Datos editados Correctamente")
+      })
+  }
 
 }

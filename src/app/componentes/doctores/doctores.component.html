@@ -1,12 +1,24 @@
+<div *ngIf="message" class="col-4 position-absolute top-0 end-0 p-3">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Se registro exitosamente!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
 <h3 class="text-center">Lista de doctores</h3>
 <div class="d-flex justify-content-between">
-    <a class="btn btn-primary mb-3" (click)="navigateCreate()">
+    <a class="btn btn-sm btn-primary mb-2" (click)="navigateCreate()">
         Agregar
     </a>
 </div>
-<div class="mb-3">
-    <input autoComplete="off" type="text" class="form-control" id="inputContraseña" placeholder="Buscar" />
-</div>
+
+<form [formGroup]="form" (ngSubmit)="save($event)">
+    <div class="input-group-sm mb-2">
+        <input autoComplete="off" type="text" class="form-control" id="search" formControlName="search" placeholder="Buscar"
+            aria-describedby="inputGroup-sizing-sm" />
+    </div>
+</form>
+
 <div class="card mb-3 table-responsive">
     <table class="table mb-0 table-bordered table-hover table-responsive">
         <thead>
@@ -33,7 +45,7 @@
                 <td>{{obj.create_on}}</td>
                 <td>{{obj.update_on}}</td>
                 <td>
-                    <a class="btn btn-warning btn-sm mx-2" [routerLink]="['/doctores/editar-doctores',obj.idDoctor]">
+                    <a class="btn btn-warning btn-sm mx-2 " [routerLink]="['/doctores/editar-doctores',obj.idDoctor] ">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
                                 class="fas fa-edit"></i></span>
                     </a>
@@ -43,7 +55,8 @@
                     </button>
                 </td>
                 <td class="text-center">
-                    <a class="btn btn-primary btn-sm mx-2" [routerLink]="['/pacientes/nota',obj.idPaciente]">
+                    <a class="btn btn-primary btn-sm mx-2"
+                        [routerLink]="['/doctores/asignar-especialidad',obj.idDoctor]">
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"><i style="color: #fff"
                                 class=" fas fa-address-card"></i></span>
                     </a>

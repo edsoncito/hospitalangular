@@ -37,6 +37,10 @@ export class RestService {
     return this.http.get(url)
   }
 
+  public searchDoctor(url: string) {
+    return this.http.get(url)
+  }
+
   public insertarDoctor(url: string, body: any) {
     return this.http.post(url, body)
   }

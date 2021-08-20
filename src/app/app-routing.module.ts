@@ -10,6 +10,7 @@ import { AgregarDoctoresComponent } from './componentes/agregar-doctores/agregar
 import { HistorialNotasComponent } from './componentes/historial-notas/historial-notas.component';
 import { NotasComponent } from './componentes/notas/notas.component';
 import { AgregarEspecialidadesComponent } from './componentes/agregar-especialidades/agregar-especialidades.component';
+import { AsignarEspecialidadComponent } from './componentes/asignar-especialidad/asignar-especialidad.component';
 
 const routes: Routes = [
   { path: "pacientes", component: PacientesComponent },
@@ -30,6 +31,8 @@ const routes: Routes = [
   
   { path: "historial-notas", component: HistorialNotasComponent },
   { path: "pacientes/nota/:key", component: NotasComponent },
+
+  { path: "doctores/asignar-especialidad/:key", component: AsignarEspecialidadComponent },
   
 ];
 

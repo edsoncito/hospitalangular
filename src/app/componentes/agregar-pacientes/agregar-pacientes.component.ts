@@ -50,8 +50,8 @@ export class AgregarPacientesComponent implements OnInit {
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
-      fecha_nac: ['', [Validators.required]],      
-      create_on: [''],      
+      fecha_nac: ['', [Validators.required]],
+      create_on: [''],
       update_on: [''],
     })
     this.form.valueChanges
@@ -106,13 +106,17 @@ export class AgregarPacientesComponent implements OnInit {
   }
 
   public actualizarPaciente() {
-    this.RestService.updatePaciente(`http://localhost:8080/api/pacientes/` + this.IdPaciente,
-      this.form.value
-    )
-      .subscribe(respuesta => {
-        console.log(respuesta)
-        alert("Datos editados Correctamente")
-      })
+    if (this.form.valid) {
+      this.RestService.updatePaciente(`http://localhost:8080/api/pacientes/` + this.IdPaciente,
+        this.form.value
+      )
+        .subscribe(respuesta => {
+          console.log(respuesta)
+          alert("Datos editados Correctamente")
+        })
+    } else {
+      alert("Los campo con (*) son obligatorios")
+    }
   }
 
 }

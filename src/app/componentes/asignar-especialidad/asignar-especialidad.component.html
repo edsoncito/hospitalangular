@@ -1,0 +1,33 @@
+<h3 class="text-center">Asignar especialidad</h3>
+
+<button type="button" class="btn btn-sm btn-secondary mb-2" >regresar</button>
+
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-6">
+                <label class="form-label">mis especialidades</label>
+                <!-- <select class="form-select" formControlName="hospital_id" size="8"
+                    aria-label="size 4 select example">
+                    <option *ngFor="let obj of listaHospital" selected={{obj.idHospital}} value={{obj.idHospital}}>
+                        {{obj.nombre}}</option>
+                </select> -->
+                <div class="list-group" style="max-height: 300px; overflow-y: scroll;">
+                    <button type="button" class="list-group-item list-group-item-action">The current button</button>
+                    
+                  </div>
+            </div>
+            
+            <div class="col-6">
+                <label class="form-label">Especialidad</label>
+                <div class="list-group" style="max-height: 300px; overflow-y: scroll;">
+                    <button *ngFor="let obj of listaEspecialidades" type="button" class="list-group-item list-group-item-action">{{obj.nombre}}</button>
+                    <!-- <option *ngFor="let obj of listaEspecialidad" value={{obj.idEspecialidad}}>{{obj.nombre}}
+                    </option> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
